@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Menu Calculator</title>
+    <link rel="stylesheet" href="burger.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>McDonald's Burger Menu</h1>
+        </div>
+
+        <div class="user-selection">
+            <label for="personName">Enter Name:</label>
+            <input type="text" id="personName" placeholder="Enter your name">
+        </div>
+
+        <div class="sets">
+            <h3>Burger Set</h3>
+            <div class="set">
+                <label for="burger">Burger</label>
+                <select id="burgerType">
+                    <option value="McChicken">McChicken</option>
+                    <option value="SpicyMcChicken">Spicy McChicken</option>
+                    <option value="McChickenCheese">McChicken Cheese</option>
+                    <option value="EggCheeseburger">Egg Cheeseburger</option>
+                    <option value="Hamburger">Hamburger</option>
+                    <option value="Cheeseburger">Cheeseburger</option>
+                    <option value="BigMac">Big Mac</option>
+                    <option value="ChickenFiletO">Chicken Filet-O</option>
+                    <option value="ShrimpFiletO">Shrimp Filet-O</option>
+                    <option value="TeriyakiMcBurger">Teriyaki McBurger</option>
+                    <option value="TeriyakiChickenFiletO">Teriyaki Chicken Filet-O</option>
+                </select>
+            </div>
+            <div class="set">
+                <label for="sides">Sides</label>
+                <select id="burgerSide">
+                    <option value="Fries">Fries</option>
+                    <option value="Nuggets">Nuggets</option>
+                </select>
+            </div>
+            <div class="set">
+                <label for="drinks">Drinks</label>
+                <select id="burgerShake">
+                    <option value="Vanilla">Coca-Cola® Zero Sugar</option>
+                    <option value="Coca Cola">Coca Cola</option>
+                    <option value="Sprite">Sprite</option>
+                    <option value="Vanilla Shake">Vanilla Shake</option>
+                    <option value="Strawberry Shake">Strawberry Shake</option>
+                    <option value="Chocolate Shake">Chocolate Shake</option>
+                </select>
+            </div>
+            <div class="set">
+                <label for="burgerSet">Set count</label>
+                <input type="number" id="burgerSet" min="0" value="0" placeholder="Set count">
+            </div>
+        </div>
+
+        <div class="menu">
+            <h3>Menu Items</h3>
+            <div class="item">
+                <label for="mcchicken">McChicken</label>
+                <input type="number" id="mcchicken" min="0" value="0">
+            </div>
+            <div class="item">
+                <label for="fries">Fries</label>
+                <input type="number" id="fries" min="0" value="0">
+            </div>
+            <div class="item">
+                <label for="milkshake">Milkshake</label>
+                <input type="number" id="milkshake" min="0" value="0">
+            </div>
+        </div>
+
+        <button id="calculateBtn">Add to Order</button>
+
+        <div id="orderSummary" class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="list">
+                <h3>Individual Orders</h3>
+                <ul id="individualOrderList"></ul>
+            </div>
+            <div class="list">
+                <h3>Items Ordered</h3>
+                <ul id="itemsOrderedList"></ul>
+            </div>
+        </div>
+        <div id="printOrder" class="print-order">
+            <button id="printBtn">Print Order Summary</button>
+        </div>
+    </div>
+
+    <script src="burger.js"></script>
+</body>
+
+</html>

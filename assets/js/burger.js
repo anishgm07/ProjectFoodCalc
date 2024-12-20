@@ -41,7 +41,7 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
         document.getElementById('mcchicken').value = 0;
         document.getElementById('fries').value = 0;
         document.getElementById('milkshake').value = 0;
-        document.getElementById('burgerSet').value = 0;
+        document.getElementById('burgerSet').value = 1;
 
         // Process and display individual orders
         const individualOrderList = document.getElementById('individualOrderList');
@@ -94,11 +94,23 @@ document.getElementById('printBtn').addEventListener('click', () => {
     const printWindow = window.open('', '', 'height=600,width=800');
 
     printWindow.document.write('<html><head><title>Burger Summary</title></head><body>');
-    printWindow.document.write('<h1>Order Summary</h1>');
+    printWindow.document.write('<h1>McDonalds Burger</h1>');
     printWindow.document.write(printContent.innerHTML);
     printWindow.document.write('</body></html>');
 
     printWindow.document.close(); // Ensure the document is ready to print
     printWindow.print(); // Trigger the print dialog
+});
+
+document.getElementById('increase').addEventListener('click', function () {
+    var input = document.getElementById('burgerSet');
+    input.value = parseInt(input.value) + 1;
+});
+
+document.getElementById('decrease').addEventListener('click', function () {
+    var input = document.getElementById('burgerSet');
+    if (input.value > 0) {
+        input.value = parseInt(input.value) - 1;
+    }
 });
 

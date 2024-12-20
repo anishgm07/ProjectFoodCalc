@@ -2,100 +2,192 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <title>Burger Menu Calculator</title>
-    <link rel="stylesheet" href="burger.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/burger.css">
+
+
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>McDonald's Burger Menu</h1>
-        </div>
 
-        <div class="user-selection">
-            <label for="personName">Enter Name:</label>
-            <input type="text" id="personName" placeholder="Enter your name">
-        </div>
-
-        <div class="sets">
-            <h3>Burger Set</h3>
-            <div class="set">
-                <label for="burger">Burger</label>
-                <select id="burgerType">
-                    <option value="McChicken">McChicken</option>
-                    <option value="SpicyMcChicken">Spicy McChicken</option>
-                    <option value="McChickenCheese">McChicken Cheese</option>
-                    <option value="EggCheeseburger">Egg Cheeseburger</option>
-                    <option value="Hamburger">Hamburger</option>
-                    <option value="Cheeseburger">Cheeseburger</option>
-                    <option value="BigMac">Big Mac</option>
-                    <option value="ChickenFiletO">Chicken Filet-O</option>
-                    <option value="ShrimpFiletO">Shrimp Filet-O</option>
-                    <option value="TeriyakiMcBurger">Teriyaki McBurger</option>
-                    <option value="TeriyakiChickenFiletO">Teriyaki Chicken Filet-O</option>
-                </select>
-            </div>
-            <div class="set">
-                <label for="sides">Sides</label>
-                <select id="burgerSide">
-                    <option value="Fries">Fries</option>
-                    <option value="Nuggets">Nuggets</option>
-                </select>
-            </div>
-            <div class="set">
-                <label for="drinks">Drinks</label>
-                <select id="burgerShake">
-                    <option value="Vanilla">Coca-Cola® Zero Sugar</option>
-                    <option value="Coca Cola">Coca Cola</option>
-                    <option value="Sprite">Sprite</option>
-                    <option value="Vanilla Shake">Vanilla Shake</option>
-                    <option value="Strawberry Shake">Strawberry Shake</option>
-                    <option value="Chocolate Shake">Chocolate Shake</option>
-                </select>
-            </div>
-            <div class="set">
-                <label for="burgerSet">Set count</label>
-                <input type="number" id="burgerSet" min="0" value="0" placeholder="Set count">
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
 
-        <div class="menu">
-            <h3>Menu Items</h3>
-            <div class="item">
-                <label for="mcchicken">McChicken</label>
-                <input type="number" id="mcchicken" min="0" value="0">
+    <div class="sub-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <ul class="info">
+                        <li><i class="fa fa-envelope"></i> info@company.com</li>
+                        <li><i class="fa fa-map"></i> Sunny Isles Beach, FL 33160</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="item">
-                <label for="fries">Fries</label>
-                <input type="number" id="fries" min="0" value="0">
-            </div>
-            <div class="item">
-                <label for="milkshake">Milkshake</label>
-                <input type="number" id="milkshake" min="0" value="0">
-            </div>
-        </div>
-
-        <button id="calculateBtn">Add to Order</button>
-
-        <div id="orderSummary" class="order-summary">
-            <h2>Order Summary</h2>
-            <div class="list">
-                <h3>Individual Orders</h3>
-                <ul id="individualOrderList"></ul>
-            </div>
-            <div class="list">
-                <h3>Items Ordered</h3>
-                <ul id="itemsOrderedList"></ul>
-            </div>
-        </div>
-        <div id="printOrder" class="print-order">
-            <button id="printBtn">Print Order Summary</button>
         </div>
     </div>
 
-    <script src="burger.js"></script>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <h1>Burger</h1>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="burger.html" class="active">Mc Donalds </a></li>
+                            <li><a href="properties.html">Properties</a></li>
+                            <li><a href="property-details.html">Property Details</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>McDonald's Burger Menu</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section properties">
+        <div class="container">
+            <div class="user-selection mb-4">
+                <label for="personName">Enter Name:</label>
+                <input type="text" id="personName" class=" person-name form-control form-control-sm" placeholder="Enter your name">
+            </div>
+
+            <div class="sets">
+                <h3>Burger Set</h3>
+                <div class="set">
+                    <label for="burger">Burger</label>
+                    <select id="burgerType" class="form-control form-control-sm">
+                    </select>
+                </div>
+                <div class="set">
+                    <label for="sides">Sides</label>
+                    <select id="burgerSide" class="form-control form-control-sm">
+                    </select>
+                </div>
+                <div class="set">
+                    <label for="drinks">Drinks</label>
+                    <select id="burgerShake" class="form-control form-control-sm">
+                    </select>
+                </div>
+                <div class="d-flex align-items-center">
+                    <label for="burgerSet" class="mr-2 set-count">Set count</label>
+                    <button class="btn btn-outline-secondary btn-sm" id="decrease" type="button">-</button>
+                    <input type="text" id="burgerSet" value="1" class="form-control form-control-sm mx-2" disabled>
+                    <button class="btn btn-outline-secondary btn-sm" id="increase" type="button">+</button>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="menu">
+                <h3>Menu Items</h3>
+                <div class="item">
+                    <label for="mcchicken">McChicken</label>
+                    <input type="number" id="mcchicken" class="form-control form-control-sm" min="0" value="0">
+                </div>
+                <div class="item">
+                    <label for="fries">Fries</label>
+                    <input type="number" id="fries" class="form-control form-control-sm" min="0" value="0">
+                </div>
+                <div class="item">
+                    <label for="milkshake">Milkshake</label>
+                    <input type="number" id="milkshake" class="form-control form-control-sm" min="0" value="0">
+                </div>
+            </div>
+
+            <button id="calculateBtn" >Add to Order</button>
+
+            <div id="orderSummary" class="order-summary mt-4">
+                <h2>Order Summary</h2>
+                <div class="list">
+                    <h3>Individual Orders</h3>
+                    <ul id="individualOrderList"></ul>
+                </div>
+                <div class="list">
+                    <h3>Items Ordered</h3>
+                    <ul id="itemsOrderedList"></ul>
+                </div>
+            </div>
+            <div id="printOrder" class="print-order">
+                <button id="printBtn">Print Order Summary</button>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 Divine Dreams.
+
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/isotope.min.js"></script>
+        <script src="assets/js/owl-carousel.js"></script>
+        <script src="assets/js/counter.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script src="assets/js/burger.js"></script>
+        <script src="assets/js/burger-options.js"></script>
+
 </body>
 
 </html>

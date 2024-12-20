@@ -1,0 +1,175 @@
+/* User Selection */
+.user-selection {
+    margin-bottom: 20px;
+}
+
+.user-selection label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d93f3d;
+    /* McDonald's red */
+}
+
+.user-selection input {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #d93f3d;
+    /* Red border */
+    border-radius: 8px;
+}
+
+/* Sets Section */
+.sets h3 {
+    color: #d93f3d;
+    /* McDonald's red */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.set label,
+.menu label {
+    font-size: 18px;
+    color: #333;
+    width: 40%;
+    font-weight: bold;
+}
+
+.set select {
+    padding: 12px;
+    font-size: 16px;
+    width: 55%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #f28a2f;
+    /* McDonald's yellow-orange */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e0772b;
+    /* Slightly darker yellow */
+}
+
+/* Input for Burger Set Counter */
+input[type="text"] {
+    width: 50px;
+    text-align: center;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.person-name {
+    text-align: left !important;
+    width: 55% !important;
+}
+
+input[type="number"] {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Order Summary */
+.order-summary {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.order-summary,
+.print-order {
+    margin-top: 20px;
+    display: none;
+}
+
+.order-summary h3 {
+    color: #d93f3d;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.order-summary ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-summary li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.order-summary p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Print Button */
+.print-order button {
+    background-color: #f28a2f;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.print-order button:hover {
+    background-color: #e0772b;
+}
+
+.set-count {
+    margin-right: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+
+    .user-selection label,
+    .set label,
+    .menu label {
+        font-size: 14px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .person-name {
+        text-align: left !important;
+        width: 100% !important;
+    }
+
+    .set select,
+    .menu input,
+    .user-selection input {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .order-summary ul {
+        display: block;
+    }
+}

@@ -3,18 +3,17 @@
     margin-bottom: 20px;
 }
 
-.user-selection label {
+label {
     font-size: 18px;
     font-weight: bold;
-    color: #d93f3d;
-    /* McDonald's red */
+    color: #2C2C24;
 }
 
 .user-selection input {
     width: 100%;
     padding: 12px;
     font-size: 18px;
-    border: 1px solid #d93f3d;
+    border: 1px solid #2C2C24;
     /* Red border */
     border-radius: 8px;
 }
@@ -28,47 +27,111 @@
     margin-bottom: 20px;
 }
 
-.set label,
-.menu label {
-    font-size: 18px;
-    color: #333;
-    width: 40%;
-    font-weight: bold;
+.set {
+    position: relative;
+    margin-bottom: 15px;
+    /* Optional: space between the select boxes */
 }
 
 .set select {
-    padding: 12px;
-    font-size: 16px;
-    width: 55%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 6px 30px 6px 16px;
+    font-size: 18px;
+    width: 100%;
+    margin: 5px 0px 5px 0px;
+    border: 1px solid #EE5F3F;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
 }
 
+.set::after {
+    content: '';
+    position: absolute;
+    top: 55%;
+    right: 10px;
+    width: 28px;
+    height: 22px;
+    background-image: url('data:image/svg+xml,%3Csvg%20fill%3D%22%23EE5F3F%22%20viewBox%3D%22-6.5%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M18.813%2011.406l-7.906%209.906c-0.75%200.906-1.906%200.906-2.625%200l-7.906-9.906c-0.75-0.938-0.375-1.656%200.781-1.656h16.875c1.188%200%201.531%200.719%200.781%201.656z%22%2F%3E%3C%2Fsvg%3E');
+    background-size: cover;
+    pointer-events: none;
+    /* Ensure the arrow doesn't interfere with selecting options */
+}
+
+.item {
+    position: relative;
+    margin-bottom: 15px;
+    /* Optional: space between the select boxes */
+}
+
+.item select {
+    padding: 6px 30px 6px 16px;
+    font-size: 18px;
+    width: 100%;
+    margin: 5px 10px 5px 0px;
+    border: 1px solid #EE5F3F;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 120px;
+    width: 28px;
+    height: 22px;
+    background-image: url('data:image/svg+xml,%3Csvg%20fill%3D%22%23EE5F3F%22%20viewBox%3D%22-6.5%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M18.813%2011.406l-7.906%209.906c-0.75%200.906-1.906%200.906-2.625%200l-7.906-9.906c-0.75-0.938-0.375-1.656%200.781-1.656h16.875c1.188%200%201.531%200.719%200.781%201.656z%22%2F%3E%3C%2Fsvg%3E');
+    background-size: cover;
+    pointer-events: none;
+    /* Ensure the arrow doesn't interfere with selecting options */
+}
+
+
+
 button {
-    background-color: #f28a2f;
-    /* McDonald's yellow-orange */
+    background-color: #EE5F3F;
+    display: flex;
+    align-items: center;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 5px;
+    height: 35px;
+    margin: 10px 0px;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #e0772b;
-    /* Slightly darker yellow */
+    background-color: #f57356;
 }
 
 /* Input for Burger Set Counter */
 input[type="text"] {
     width: 50px;
     text-align: center;
+    margin: 5px 0px 5px 0px;
     font-size: 18px;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    padding: 6px 6px 6px 16px;
+    border-radius: 5px;
+    border: 1px solid #EE5F3F;
+}
+
+.set-box input[type="text"] {
+    padding: 6px;
+}
+
+.item input[type="text"] {
+    width: 35px;
+    margin: 3px 0px 3px 0px;
+    font-size: 16px;
+    padding: 5px;
 }
 
 .person-name {
@@ -94,68 +157,77 @@ input[type="number"] {
 .order-summary {
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    border-radius: 10px;
     display: none;
 }
 
-.order-summary,
 .print-order {
     margin-top: 20px;
     display: none;
+    justify-content: center;
+}
+
+.order-summary h2 {
+    display: flex;
+    justify-content: center;
+    color: #EE5F3F;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 0px 15px 0px;
 }
 
 .order-summary h3 {
-    color: #d93f3d;
-    font-size: 22px;
+    color: #2C2C24;
+    font-size: 20px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .order-summary ul {
     list-style-type: none;
     padding: 0;
+    margin-bottom: 20px;
 }
 
 .order-summary li {
-    margin-bottom: 10px;
     font-size: 16px;
-}
-
-.order-summary p {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
+    color: #2e2e2b;
 }
 
 /* Print Button */
-.print-order button {
-    background-color: #f28a2f;
+
+.custom-btn {
+    border: 2px solid #2C2C24;
+    color: #2C2C24;
+    background-color: transparent;
+}
+
+.custom-btn:hover {
+    background-color: #2C2C24;
     color: white;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.print-order button:hover {
-    background-color: #e0772b;
+.count-path {
+    font-family: 'Marva-light', sans-serif;
+    color: #FEF8E8;
+    background-color: #EE5F3F;
 }
 
-.set-count {
-    margin-right: 20px;
+.change-count {
+    color: #2C2C24;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
-
-    .user-selection label,
-    .set label,
-    .menu label {
-        font-size: 14px;
-        width: 100%;
-        text-align: left;
-    }
 
     .person-name {
         text-align: left !important;
@@ -165,7 +237,6 @@ input[type="number"] {
     .set select,
     .menu input,
     .user-selection input {
-        font-size: 14px;
         width: 100%;
     }
 

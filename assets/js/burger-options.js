@@ -15,8 +15,8 @@ const burgerOptions = [
 const sidesOptions = ["Fries", "Nuggets"];
 
 const drinksOptions = [
-    "Coca-Cola Zero Sugar",
     "Coca Cola",
+    "Coca-Cola Zero Sugar",
     "Sprite",
     "Vanilla Shake",
     "Strawberry Shake",
@@ -39,4 +39,7 @@ window.onload = function () {
     populateDropdown("burgerType", burgerOptions);
     populateDropdown("burgerSide", sidesOptions);
     populateDropdown("burgerShake", drinksOptions);
+    populateDropdown("burgerItem", burgerOptions);
+    populateDropdown("sidesItem", sidesOptions);
+    populateDropdown("beverageItem", drinksOptions);
 };

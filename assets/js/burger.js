@@ -3,12 +3,6 @@ let people = [];
 document.getElementById('calculateBtn').addEventListener('click', () => {
     const name = document.getElementById('personName').value.trim();
     if (name) {
-        // Gather individual order input for the person
-        const individualOrder = {
-            mcchicken: parseInt(document.getElementById('mcchicken').value) || 0,
-            fries: parseInt(document.getElementById('fries').value) || 0,
-            milkshake: parseInt(document.getElementById('milkshake').value) || 0,
-        };
 
         // Gather set input based on dynamic selections
         const setOrders = {
@@ -16,14 +10,6 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
         };
 
         const orderList = [];
-
-        // Add individual items and sets to order list if quantity > 0
-        for (let item in individualOrder) {
-            const quantity = individualOrder[item];
-            if (quantity > 0) {
-                orderList.push({ item, quantity });
-            }
-        }
 
         // Add the set items to the order if quantity > 0
         if (setOrders.burgerSet > 0) {
@@ -33,14 +19,33 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
             orderList.push({ item: `Burger Set (${burgerType}, ${sideType}, ${shakeType})`, quantity: setOrders.burgerSet });
         }
 
+        // Add individual menu items if their count > 0
+        const burgerItemCount = parseInt(document.getElementById('burger').value) || 0;
+        if (burgerItemCount > 0) {
+            const burgerItem = document.getElementById('burgerItem').value;
+            orderList.push({ item: `${burgerItem}`, quantity: burgerItemCount });
+        }
+
+        const sidesItemCount = parseInt(document.getElementById('sides').value) || 0;
+        if (sidesItemCount > 0) {
+            const sidesItem = document.getElementById('sidesItem').value;
+            orderList.push({ item: `${sidesItem}`, quantity: sidesItemCount });
+        }
+
+        const beverageItemCount = parseInt(document.getElementById('beverage').value) || 0;
+        if (beverageItemCount > 0) {
+            const beverageItem = document.getElementById('beverageItem').value;
+            orderList.push({ item: `${beverageItem}`, quantity: beverageItemCount });
+        }
+
         // Add person and their order to the 'people' array
         people.push({ name, order: orderList });
 
         // Clear the input fields for the next person
         document.getElementById('personName').value = '';
-        document.getElementById('mcchicken').value = 0;
-        document.getElementById('fries').value = 0;
-        document.getElementById('milkshake').value = 0;
+        document.getElementById('burger').value = 0;
+        document.getElementById('sides').value = 0;
+        document.getElementById('beverage').value = 0;
         document.getElementById('burgerSet').value = 1;
 
         // Process and display individual orders
@@ -82,7 +87,7 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
 
         // Show order summary section
         document.getElementById('orderSummary').style.display = 'block';
-        document.getElementById('printOrder').style.display = 'block';
+        document.getElementById('printOrder').style.display = 'flex';
     } else {
         alert("Please enter a valid name.");
     }
@@ -98,19 +103,23 @@ document.getElementById('printBtn').addEventListener('click', () => {
     printWindow.document.write(printContent.innerHTML);
     printWindow.document.write('</body></html>');
 
-    printWindow.document.close(); // Ensure the document is ready to print
-    printWindow.print(); // Trigger the print dialog
+    printWindow.document.close();
+    printWindow.print();
 });
 
-document.getElementById('increase').addEventListener('click', function () {
-    var input = document.getElementById('burgerSet');
-    input.value = parseInt(input.value) + 1;
-});
+// Listen for clicks on any button with the class "change-count"
+document.querySelectorAll('.change-count').forEach(button => {
+    button.addEventListener('click', function () {
+        // Get the action (increase or decrease) from the button's data-action attribute
+        var action = this.getAttribute('data-action');
+        var input = this.parentNode.querySelector('input');
+        var currentValue = parseInt(input.value);
 
-document.getElementById('decrease').addEventListener('click', function () {
-    var input = document.getElementById('burgerSet');
-    if (input.value > 0) {
-        input.value = parseInt(input.value) - 1;
-    }
+        // Adjust the value based on the action
+        if (action === 'increase') {
+            input.value = currentValue + 1;
+        } else if (action === 'decrease' && currentValue > 0) {
+            input.value = currentValue - 1;
+        }
+    });
 });
-

@@ -51,6 +51,10 @@ var, b, u, i, center, dl, dt, dd, ol, ul, li, figure, header, nav, section, arti
   outline: 0;
 }
 
+body {
+  background-color: #FEF8E8;
+}
+
 .clearfix:after {
   content: ".";
   display: block;
